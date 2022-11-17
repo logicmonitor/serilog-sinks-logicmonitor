@@ -1,6 +1,6 @@
 # Serilog.Sinks.LogicMonitor
 
-A Serilog sink that send events and logs staight away to LogicMonitor.
+A Serilog sink that send events and logs straight away to LogicMonitor.
 This Package Uses LogicMonitor.DataSDK to send logs.
 
 Export the following environment variable.
