@@ -3,6 +3,7 @@ using Serilog.Events;
 using configuration = LogicMonitor.DataSDK.Configuration;
 using LogicMonitor.DataSDK.Model;
 using Serilog.Sinks.LogicMonitor;
+using System;
 
 namespace Serilog
 {
@@ -14,10 +15,11 @@ namespace Serilog
             Resource resource = null,
             bool batch = true,
             int interval = 10,
-            LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum
+            LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
+            IFormatProvider formatProvider = null
             )
         {
-            var lmSink = new LogicmonitorSink(configuration, resource, batch, interval);
+            var lmSink = new LogicmonitorSink(configuration, resource, batch, interval, formatProvider);
             return loggerSinkConfiguration.Sink(lmSink, restrictedToMinimumLevel);
         }
     }
